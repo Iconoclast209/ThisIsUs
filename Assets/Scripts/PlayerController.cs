@@ -61,7 +61,15 @@ public class PlayerController : MonoBehaviour {
 
     private void Jump()
     {
-        animWing.SetTrigger("triggerIsFlapping");
+        if(facingRight)
+        {
+            animWing.SetTrigger("triggerIsFlapping");
+        }
+        else
+        {
+            animWing.SetTrigger("triggerIsFlappingLeft");
+        }    
+
         rb.transform.Translate(0, jumpDistance, 0);
     }
 
@@ -69,9 +77,8 @@ public class PlayerController : MonoBehaviour {
     {
         facingRight = false;
         srGoose.flipX = true;
-        srWing.flipX = true;
-        Vector3 wingPos = new Vector3(0.8f, -1.7f, 0f);
-        wing.transform.localPosition = wingPos;
+        //srWing.flipX = true;
+        animWing.SetBool("isFacingLeft", true);
         
         
     }
@@ -80,7 +87,7 @@ public class PlayerController : MonoBehaviour {
     {
         facingRight = true;
         srGoose.flipX = false;
-        srWing.flipX = false;
-        wing.transform.localPosition = new Vector3(-0.9f, -1.7f, 0f);
+        //srWing.flipX = false;
+        animWing.SetBool("isFacingLeft", false);
     }
 }
