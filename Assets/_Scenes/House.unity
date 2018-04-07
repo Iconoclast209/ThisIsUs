@@ -417,7 +417,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Waddle It Be?
+  m_Text: House
 --- !u!222 &1628117242
 CanvasRenderer:
   m_ObjectHideFlags: 0
