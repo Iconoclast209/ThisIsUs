@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
     public float cameraYDefaultPosition;
     public float cameraYMaxPosition;
+    public float cameraXOffsetFromPlayer;
     private GameObject player;
     private float playerXPosition;
     //private float playerYPosition;
@@ -26,12 +27,10 @@ public class CameraController : MonoBehaviour {
     void FindPlayerPosition()
     {
         playerXPosition = player.transform.position.x;
-        //playerYPosition = player.transform.position.y;
-        print("Player X Position = " + playerXPosition.ToString());
     }
 
     void MoveCamera()
     {
-        transform.position = new Vector3(playerXPosition, cameraYDefaultPosition, -10);
+        transform.position = new Vector3(playerXPosition+cameraXOffsetFromPlayer, cameraYDefaultPosition, -10);
     }
 }

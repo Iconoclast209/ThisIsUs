@@ -26,6 +26,8 @@ public class Cow : MonoBehaviour {
             animCow.SetTrigger("triggerMoo");
             //play sound
             audioSource.Play();
+            PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
+            pc.InteractWithCow();
         }
 
     }
