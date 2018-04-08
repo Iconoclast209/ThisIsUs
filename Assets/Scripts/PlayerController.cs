@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour {
         {
             gooseImage.enabled = true;
             speechTextBox.text = interactionStringArray[0];
-            Invoke("CowRespondsToInteraction", 5.0f);
+            Invoke("CowRespondsToInteraction", 7.0f);
         }
         
     }
@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour {
         animalImage.enabled = true;
         //Update Text
         speechTextBox.text = "Hey Anthony.  Afraid we haven't seen it.  You might want to check with the chickens, though.";
-        Invoke("StopPlayerInteraction", 5.0f);
+        Invoke("StopPlayerInteraction", 7.0f);
         ableToInteractWithCow = false;
     }
 
