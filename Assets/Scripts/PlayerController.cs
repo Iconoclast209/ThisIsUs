@@ -115,6 +115,7 @@ public class PlayerController : MonoBehaviour {
         StopPlayerInteraction();
         //Show Picture
         animalImage.sprite = animalSpriteArray[0];
+        animalImage.preserveAspect = true;
         animalImage.enabled = true;
         //Update Text
         speechTextBox.text = "Hey Anthony.  Afraid we haven't seen it.  You might want to check with the chickens, though.";
@@ -128,8 +129,22 @@ public class PlayerController : MonoBehaviour {
         {
             gooseImage.enabled = true;
             speechTextBox.text = interactionStringArray[1];
+            Invoke("ChickenRespondsToInteraction", 5.0f);
         }
             
+    }
+
+    private void ChickenRespondsToInteraction()
+    {
+        StopPlayerInteraction();
+        //Show Picture
+        animalImage.sprite = animalSpriteArray[1];
+        animalImage.preserveAspect = true;
+        animalImage.enabled = true;
+        //Update Sheep Text
+        speechTextBox.text = "Oh, hi Anthony.  I haven't seen anything.  But my eyes aren't very good anymore!";
+        Invoke("StopPlayerInteraction", 5.0f);
+        ableToInteractWithChicken = false;
     }
 
     public void InteractWithSheep()
@@ -147,6 +162,7 @@ public class PlayerController : MonoBehaviour {
         StopPlayerInteraction();
         //Show Sheep Picture
         animalImage.sprite = animalSpriteArray[2];
+        animalImage.preserveAspect = true;
         animalImage.enabled = true;
         //Update Sheep Text
         speechTextBox.text = "Hi Anthony.  I saw the farmer take it inside his house.  Good luck!";
