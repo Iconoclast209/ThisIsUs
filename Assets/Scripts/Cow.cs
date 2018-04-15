@@ -6,6 +6,7 @@ public class Cow : MonoBehaviour {
 
     private Animator animCow;
     private AudioSource audioSource;
+    
 
 	// Use this for initialization
 	void Start () {
@@ -14,7 +15,8 @@ public class Cow : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 

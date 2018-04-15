@@ -165,9 +165,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed1d303e61aff84793077c34b5f2851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 6
+  playerSpeed: 4
   jumpDistance: 1
   wing: {fileID: 1759824927113080}
+  speechTextBox: {fileID: 0}
+  gooseImage: {fileID: 0}
+  animalImage: {fileID: 0}
+  animalSpriteArray: []
+  interactionStringArray: []
+  playerInputEnabled: 1
 --- !u!212 &212803053766370104
 SpriteRenderer:
   m_ObjectHideFlags: 1

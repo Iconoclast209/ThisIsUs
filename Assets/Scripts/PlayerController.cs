@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     public Image animalImage;
     public Sprite[] animalSpriteArray;
     public string[] interactionStringArray;
+    public bool playerInputEnabled = true;
 
     private Rigidbody2D rb;
     private bool facingRight = true;
@@ -39,20 +40,33 @@ public class PlayerController : MonoBehaviour {
     {
         rb.transform.rotation = Quaternion.identity;
 
-        if (Input.GetAxis("Horizontal") != 0)
+        if (playerInputEnabled)
         {
-            MovePlayerHorizontally();
+            if (Input.GetAxis("Horizontal") != 0)
+            {
+                MovePlayerHorizontally();
+            }
+            else
+            {
+                animGoose.SetBool("isWalking", false);
+            }
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                Jump();
+            }
         }
-        else
-        {
-            animGoose.SetBool("isWalking", false);
-        }
-            
-        if(Input.GetButtonDown("Jump"))
-        {
-            Jump();
-        }
-        
+    }
+
+    public void DisablePlayerInput()
+    {
+        playerInputEnabled = false;
+        animGoose.SetBool("isWalking", false);
+    }
+
+    private void EnablePlayerInput()
+    {
+        playerInputEnabled = true;
     }
 
     private void MovePlayerHorizontally()
@@ -103,9 +117,10 @@ public class PlayerController : MonoBehaviour {
     {
         if(ableToInteractWithCow)
         {
+            DisablePlayerInput();
             gooseImage.enabled = true;
             speechTextBox.text = interactionStringArray[0];
-            Invoke("CowRespondsToInteraction", 7.0f);
+            Invoke("CowRespondsToInteraction", 6.0f);
         }
         
     }
@@ -119,7 +134,7 @@ public class PlayerController : MonoBehaviour {
         animalImage.enabled = true;
         //Update Text
         speechTextBox.text = "Hey Anthony.  Afraid we haven't seen it.  You might want to check with the chickens, though.";
-        Invoke("StopPlayerInteraction", 7.0f);
+        Invoke("StopPlayerInteraction", 6.0f);
         ableToInteractWithCow = false;
     }
 
@@ -127,6 +142,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (ableToInteractWithChicken)
         {
+            DisablePlayerInput();
             gooseImage.enabled = true;
             speechTextBox.text = interactionStringArray[1];
             Invoke("ChickenRespondsToInteraction", 5.0f);
@@ -151,6 +167,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (ableToInteractWithSheep)
         {
+            DisablePlayerInput();
             gooseImage.enabled = true;
             speechTextBox.text = interactionStringArray[2];
             Invoke("SheepRespondsToInteraction", 5.0f);
@@ -175,5 +192,6 @@ public class PlayerController : MonoBehaviour {
         gooseImage.enabled = false;
         animalImage.enabled = false;
         speechTextBox.text = "";
+        EnablePlayerInput();
     }
 }

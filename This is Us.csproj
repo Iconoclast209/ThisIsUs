@@ -292,6 +292,7 @@
     <Compile Include="Assets\Scripts\Chicken.cs" />
     <Compile Include="Assets\Scripts\Cloud.cs" />
     <Compile Include="Assets\Scripts\Cow.cs" />
+    <Compile Include="Assets\Scripts\Egg.cs" />
     <Compile Include="Assets\Scripts\HintController.cs" />
     <Compile Include="Assets\Scripts\HouseTriggerCollider.cs" />
     <Compile Include="Assets\Scripts\IntroManager.cs" />
