@@ -923,7 +923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hatchDelayTime: 3
-  creditsDelayTime: 2
+  creditsDelayTime: 5
   cam: {fileID: 1387107966}
 --- !u!82 &998998244
 AudioSource:

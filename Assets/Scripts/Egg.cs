@@ -44,12 +44,11 @@ public class Egg : MonoBehaviour {
     private void ZoomInOnEgg()
     {
         camAnimator.SetTrigger("Zoom");
-
+        pc.DisablePlayerInput();
     }
 
     private void HatchMyEgg()
     {
-        pc.DisablePlayerInput();
         eggAnimator.SetTrigger("triggerHatch");
         audioSource.Play();
     }
